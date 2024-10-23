@@ -49,6 +49,10 @@ def main():
     # load UserInfo.txt to a dit
     user_info = load_user_info()
     rooms = {"room0" : [], "room1" : [], "room2" : [], "room3" : [], "room4" : [], "room5" : [], "room6" : [], "room7" : [], "room8" : [], "room9" : []}
+
+    # use this to paly games??????????? ,idk
+    #rooms_result = {"room0" : [], "room1" : [], "room2" : [], "room3" : [], "room4" : [], "room5" : [], "room6" : [], "room7" : [], "room8" : [], "room9" : []}
+    
     rooms_lock = threading.Lock()
     serverPort = 22222
 
