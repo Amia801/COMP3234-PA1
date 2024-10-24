@@ -53,7 +53,7 @@ def main():
     rooms = {"room0" : 0, "room1" : 0, "room2" : 0, "room3" : 0, "room4" : 0, "room5" : 0, "room6" : 0, "room7" : 0, "room8" : 0, "room9" : 0}
 
     # use this to paly games??????????? ,idk
-    #rooms_result = {"room0" : [], "room1" : [], "room2" : [], "room3" : [], "room4" : [], "room5" : [], "room6" : [], "room7" : [], "room8" : [], "room9" : []}
+    rooms_result = {"room0" : [], "room1" : [], "room2" : [], "room3" : [], "room4" : [], "room5" : [], "room6" : [], "room7" : [], "room8" : [], "room9" : []}
     
     rooms_lock = threading.Lock()
     serverPort = 22222
