@@ -53,6 +53,8 @@ def player_thread(client_socket, user_info,rooms,rooms_lock):
                     
         elif user_cmd[0] == "/exit":# exit
             client_socket.send("4001".encode('utf-8'))
+            client_socket.close()
+            break
 
 def gaming_thread(rooms,rooms_lock):
     while True :
