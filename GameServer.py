@@ -31,15 +31,15 @@ def player_thread(client_socket, user_info,rooms,rooms_lock):
         elif user_cmd[0] == "/enter": # enter the game room and play?????
             room_id = int(user_cmd[1])
             room_key = "room" + str(room_id)
-            if len(rooms[room_key]) >= 2:
+            if rooms[room_key] >= 2:
                 client_socket.send("3013".encode('utf-8'))
             else:
                 with rooms_lock:
-                    if len(rooms[room_key][0]) == 0:
+                    if rooms[room_key][0] == 0:
                         rooms[room_key][1].append(client_socket)
                         client_socket.send("3011".encode('utf-8'))
                         #wait for another player and play game
-                    if len(rooms[room_key][1]) == 1:
+                    if rooms[room_key][1] == 1:
                         rooms[room_key][2].append(client_socket)
                         client_socket.send("3012".encode('utf-8'))
                         # play game
@@ -101,8 +101,8 @@ def main():
 
 
     while True:
-        gaming_thread = threading.Thread(target=gaming_thread, args=(rooms,rooms_lock))
-        gaming_thread.start()
+        gaming = threading.Thread(target=gaming_thread, args=(rooms,rooms_lock))
+        gaming.start()
         # accept a connection
         client_socket, addr = server_socket.accept()
         print(f"Connection from {addr} has been established!")
