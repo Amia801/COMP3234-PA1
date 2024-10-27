@@ -123,7 +123,7 @@ if __name__ == "__main__":
             case "waiting_in_room": # Handle the waiting in room state
                 received_message = handle_waiting_in_room(client_socket)
                 if received_message == "3012":
-                    print("3012 Game started. Please guess true or false")
+                    print("3012 Game started. Please enter /guess true or false")
                     state = "playing_a_game"
 
             case "playing_a_game": # Handle the playing a game state
@@ -137,6 +137,9 @@ if __name__ == "__main__":
                         state = "in_the_game_hall"
                     case "3023":
                         print("3023 The result is a tie")
+                        state = "in_the_game_hall"
+                    case "3011":
+                        print("3011 Opponent disconnection, back to game hall")
                         state = "in_the_game_hall"
                     case "4002":
                         print("4002 Unrecognized message")
